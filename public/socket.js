@@ -9,6 +9,8 @@ socket.on("join",function(dataObj){
     chatWindow.append(joinDiv);
 
     addInOnlineList(dataObj);
+    chatWindow.scrollTop=chatWindow.scrollHeight;
+
 });
 
 socket.on("leave",function(dataObj){
@@ -19,6 +21,8 @@ socket.on("leave",function(dataObj){
     chatWindow.append(leaveDiv);
 
     deleteFromOnlineList(dataObj.id);
+    chatWindow.scrollTop=chatWindow.scrollHeight;
+
 });
 
 socket.on("chatleft",function(chatObject){
@@ -27,6 +31,8 @@ socket.on("chatleft",function(chatObject){
     chatDiv.classList.add("left");
     chatDiv.innerHTML=chatObject.name + " : " + chatObject.chat;
     chatWindow.append(chatDiv);
+    chatWindow.scrollTop=chatWindow.scrollHeight;
+
 })
 
 socket.on("online-list",function(userList){
