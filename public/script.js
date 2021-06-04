@@ -16,5 +16,6 @@ chatInput.addEventListener("keypress",function(e){
         // emit username and chat value 
         socket.emit("chat",{"name": username,"chat":chatInput.value});
         chatInput.value="";
+        chatWindow.scrollTop=chatWindow.scrollHeight;
     }
 })
